@@ -29,6 +29,11 @@ header img {
     margin-left: 3rem;
 }
 
+/* FILTER */
+label {
+    color: white;
+}
+
 /* MY CARD */
 .my-card {
     background-color: #2e3a46;

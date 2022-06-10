@@ -22,10 +22,23 @@
     </header>
     <main id="root">
         <div class="container">
+            <form class="pt-4">
+                <label for="selectGenre" class="me-1">Filtra per genere musicale</label>
+                <select class="me-5" name="selectGenre" id="selectGenre" v-model="genreSelection" @change="">
+                    <option value=""></option>
+                    <option v-for="(item, index) in genresArray" :key="index" :value="item">{{item}}</option>
+                </select>
+
+                <label for="selectArtist" class="me-3">Filtra per artista</label>
+                <select name="selectArtist" id="selectArtist" v-model="artistSelection" @change="">
+                    <option value=""></option>
+                    <option v-for="(item, index) in discs" :key="index" :value="item.author">{{item.author}}</option>
+                </select>
+            </form>
             <div class="row row-cols-2 row-cols-md-3 g-5 my-5">
                 <div class="col" v-for="thisDisc in discs">
                     <div class="my-card text-center py-4">
-                        <img :src="thisDisc.poster" :alt="thisDisc.title"/>
+                        <img :src="thisDisc.poster" :alt="thisDisc.title" />
                         <h3 class="py-3 text-uppercase">{{thisDisc.title}}</h3>
                         <span class="text-secondary">{{thisDisc.author}}</span>
                         <span class="text-secondary">{{thisDisc.year}}</span>
