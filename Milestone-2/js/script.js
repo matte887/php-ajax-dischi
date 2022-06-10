@@ -2,7 +2,9 @@ const app = new Vue({
     el: "#root",
     data: {
         discs: [],
-        genresArray: []
+        genresArray: [],
+        genreSelected: "",
+        thisGenre: [],
     },
     methods: {
         generateArrayGenres() {
@@ -11,7 +13,24 @@ const app = new Vue({
                     this.genresArray.push(element.genre);
                 }
             });
-        }
+        },
+        filterByGenres() {
+            axios
+            .get("http://localhost/php-ajax-dischi/Milestone-2/api/server.php", {
+                params: {
+                    genre: this.genreSelected
+                }
+            })
+            .then((resp) => {
+                this.discs = [];
+                resp.data.forEach(element => {
+                    if (this.genreSelected === element.genre) {
+                        this.discs.push(element);
+                    }
+                })
+                console.log(this.discs);
+            });
+        },
     },
     created() {
         axios
