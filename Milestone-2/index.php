@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>php-ajax-dischi</title>
     <!-- My style -->
     <link rel="stylesheet" href="../common-files/css/style.css">
     <!-- Bootstrap 5 -->
@@ -14,7 +15,27 @@
     <!-- VueJs -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
+
 <body>
-    <h1>ciao</h1>
+    <header>
+        <img src="../common-files/img/spotify.png" alt="">
+    </header>
+    <main id="root">
+        <div class="container">
+            <div class="row row-cols-2 row-cols-md-3 g-5 my-5">
+                <div class="col" v-for="thisDisc in discs">
+                    <div class="my-card text-center py-4">
+                        <img :src="thisDisc.poster" :alt="thisDisc.title"/>
+                        <h3 class="py-3 text-uppercase">{{thisDisc.title}}</h3>
+                        <span class="text-secondary">{{thisDisc.author}}</span>
+                        <span class="text-secondary">{{thisDisc.year}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/script.js"></script>
 </body>
+
 </html>
