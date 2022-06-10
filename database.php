@@ -44,6 +44,4 @@
             'genre' => 'Rock'
         ]
     ];
-
-    var_dump($database);
 ?>
