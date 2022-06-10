@@ -4,7 +4,6 @@ const app = new Vue({
         discs: [],
         genresArray: [],
         genreSelected: "",
-        thisGenre: [],
     },
     methods: {
         generateArrayGenres() {
@@ -22,13 +21,7 @@ const app = new Vue({
                 }
             })
             .then((resp) => {
-                this.discs = [];
-                resp.data.forEach(element => {
-                    if (this.genreSelected === element.genre) {
-                        this.discs.push(element);
-                    }
-                })
-                console.log(this.discs);
+                this.discs = resp.data;
             });
         },
     },
