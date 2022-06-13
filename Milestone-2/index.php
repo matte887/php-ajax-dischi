@@ -17,30 +17,32 @@
 </head>
 
 <body>
-    <header>
-        <img src="../common-files/img/spotify.png" alt="">
-    </header>
-    <main id="root">
-        <div class="container">
-            <form class="pt-4">
-                <label for="selectGenre" class="me-1">Filtra per genere musicale</label>
-                <select name="selectGenre" id="selectGenre" v-model="genreSelected" @change="filterByGenres()">
-                    <option value=""></option>
-                    <option v-for="(item, index) in genresArray" :key="index" :value="item">{{item}}</option>
-                </select>
-            </form>
-            <div class="row row-cols-2 row-cols-md-3 g-5 my-5">
-                <div class="col" v-for="thisDisc in discs">
-                    <div class="my-card text-center py-4">
-                        <img :src="thisDisc.poster" :alt="thisDisc.title" />
-                        <h3 class="py-3 text-uppercase">{{thisDisc.title}}</h3>
-                        <span class="text-secondary">{{thisDisc.author}}</span>
-                        <span class="text-secondary">{{thisDisc.year}}</span>
+    <div id="root">
+        <header>
+            <img src="../common-files/img/spotify.png" alt="">
+        </header>
+        <main>
+            <div class="container">
+                <div class="pt-4">
+                    <label for="selectGenre" class="me-1">Filtra per genere musicale</label>
+                    <select name="selectGenre" id="selectGenre" v-model="genreSelected" @change="filterByGenres()">
+                        <option value="">All</option>
+                        <option v-for="(item, index) in genresArray" :key="index" :value="item">{{item}}</option>
+                    </select>
+                </div>
+                <div class="row row-cols-2 row-cols-md-3 g-5 my-5">
+                    <div class="col" v-for="thisDisc in discs">
+                        <div class="my-card text-center py-4">
+                            <img :src="thisDisc.poster" :alt="thisDisc.title" />
+                            <h3 class="py-3 text-uppercase">{{thisDisc.title}}</h3>
+                            <span class="text-secondary">{{thisDisc.author}}</span>
+                            <span class="text-secondary">{{thisDisc.year}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <script src="./js/script.js"></script>
 </body>
