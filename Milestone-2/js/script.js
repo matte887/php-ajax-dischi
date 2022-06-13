@@ -22,15 +22,11 @@ const app = new Vue({
             })
             .then((resp) => {
                 this.discs = resp.data;
+                this.generateArrayGenres();
             });
         },
     },
     created() {
-        axios
-            .get("http://localhost/php-ajax-dischi/Milestone-2/api/server.php")
-            .then((resp) => {
-                this.discs = resp.data;
-                this.generateArrayGenres();
-            });
+        this.filterByGenres();
     }
 });
